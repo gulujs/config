@@ -1,0 +1,38 @@
+#######################################################################
+# LUN.JS - CONFIG
+#######################################################################
+
+host = '${HOST:-example.lunjs.org}'
+# Port the server should listen to
+port = '${PORT:-3000}'
+# IP address the server should listen to
+# Leave 0.0.0.0 for all interfaces
+bindIP = '${BIND_IP:-0.0.0.0}'
+
+siteURL = 'https://${host}:${port}/'
+title = '${TITLE:-${siteURL}}'
+
+[database.mongodb]
+uri = 'mongodb://${DB_HOST:-localhost}:${DB_PROT:-27017}/test'
+options = { user = '${DB_USER:-foo}', pass = '${DB_PASS:-bar}', autoIndex = false }
+
+[database.sequelize]
+dialect = 'sqlite'
+storage = 'path/to/database.sqlite'
+
+[database.redis]
+host = '127.0.0.1'
+port = 6379
+pass = 'hello'
+
+[kafka]
+clientId = 'my-app'
+brokers = ['kafka1:9092', 'kafka2:9092']
+
+[[users]]
+name = 'tom'
+pass = '123'
+
+[[users]]
+name = 'peter'
+pass = '456'

@@ -1,0 +1,16 @@
+# @merge-ignore-target-key storage
+[database.sequelize]
+dialect = 'mysql'
+database = 'test'
+username = '${DB_USER:-foo}'
+password = '${DB_PASS:-bar}'
+host = '${DB_HOST:-localhost}'
+port = '${DB_PORT:-3306}'
+pool = { max = 10, min = 5 }
+
+[kafka]
+brokers = ['kafka3:9092', 'kafka4:9092']
+
+[[users]]
+name = 'bob'
+pass = '789'

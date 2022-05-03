@@ -1,0 +1,16 @@
+{
+  "extends": "@lunjs/eslint-config/ts/node",
+  "overrides": [
+    {
+      "files": ["test/**/*"],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "node/no-missing-import": "off",
+        "node/file-extension-in-import": "off",
+        "@typescript-eslint/no-unused-expressions": "off"
+      }
+    }
+  ]
+}
