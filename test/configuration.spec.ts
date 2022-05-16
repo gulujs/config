@@ -18,11 +18,7 @@ describe('Configuration', () => {
 
   it('empty options', () => {
     const config = new Configuration({});
-    config.load();
 
-    expect(config.disableCache).to.equal(false);
-    expect(config.envFiles).to.be.undefined;
-    expect(config.tomlFiles).to.be.undefined;
     expect(config.getRaw()).to.deep.equal({});
 
     expect(config.get('foo')).to.be.undefined;
@@ -36,7 +32,6 @@ describe('Configuration', () => {
     const config = new Configuration({
       envFiles: [ENV_FILE_DEFAULT]
     });
-    config.load();
 
     expect(process.env).to.include(env);
     expect(config.getRaw()).to.deep.equal({});
@@ -55,7 +50,6 @@ describe('Configuration', () => {
     const config = new Configuration({
       envFiles: [ENV_FILE_DEFAULT, ENV_FILE_PRODUCTION]
     });
-    config.load();
 
     expect(process.env).to.include(env);
     expect(config.getRaw()).to.deep.equal({});
@@ -70,7 +64,6 @@ describe('Configuration', () => {
     const config = new Configuration({
       envFiles: [ENV_FILE_DEFAULT, ENV_FILE_PRODUCTION]
     });
-    config.load();
 
     expect(process.env['PORT']).to.equal('8000');
     expect(process.env['DB_PASS']).to.equal('hello');
@@ -81,7 +74,6 @@ describe('Configuration', () => {
     const config = new Configuration({
       tomlFiles: [TOML_FILE_DEFAULT]
     });
-    config.load();
 
     const configRawObject = {
       host: 'example.lunjs.org',
@@ -135,7 +127,6 @@ describe('Configuration', () => {
     const config = new Configuration({
       tomlFiles: [TOML_FILE_DEFAULT, TOML_FILE_PRODUCTION]
     });
-    config.load();
 
     const configRawObject = {
       host: 'example.lunjs.org',
@@ -194,7 +185,6 @@ describe('Configuration', () => {
       envFiles: [ENV_FILE_DEFAULT, ENV_FILE_PRODUCTION],
       tomlFiles: [TOML_FILE_DEFAULT, TOML_FILE_PRODUCTION]
     });
-    config.load();
 
     const configRawObject = {
       host: 'example.lunjs.org',
@@ -253,7 +243,6 @@ describe('Configuration', () => {
       tomlFiles: [TOML_FILE_DEFAULT, TOML_FILE_PRODUCTION],
       arrayMergeLogic: ArrayMergeLogic.MergeInOrder
     });
-    config.load();
 
     const brokers = [
       'kafka3:9092',
@@ -279,7 +268,6 @@ describe('Configuration', () => {
       tomlFiles: [TOML_FILE_DEFAULT, TOML_FILE_PRODUCTION],
       arrayMergeLogic: ArrayMergeLogic.Append
     });
-    config.load();
 
     const brokers = [
       'kafka1:9092',
