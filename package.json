@@ -1,6 +1,6 @@
 {
   "name": "@lunjs/config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Configration base on toml files",
   "type": "module",
   "main": "dist/index.js",
